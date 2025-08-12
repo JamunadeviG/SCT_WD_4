@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | To-Do App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="landing-bg">
+    <div class="auth-container">
+        <h2>Welcome Back</h2>
+
+        <!-- Message Box -->
+        <div id="message" class="msg" style="display:none;"></div>
+
+        <!-- Inputs -->
+        <input type="text" id="signin-username" placeholder="Username">
+        <input type="password" id="signin-password" placeholder="Password">
+
+        <!-- Main Button -->
+        <button type="button"  class="btn-gradient" onclick="signin()">Sign In</button>
+
+        <!-- Secondary Link -->
+        <p>Don't have an account?
+            <a href="signup.html" class="link-btn">Sign Up</a>
+        </p>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>

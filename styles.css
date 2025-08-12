@@ -1,48 +1,180 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* =========================
+   RESET & COMMON STYLES
+========================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+button, a.btn-gradient, a.auth-link-btn {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px 16px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   LANDING + AUTH PAGES
+========================= */
+body.landing-bg,
+body.home-page {
+    background: linear-gradient(135deg, #000000, #8B0000, #601d1d);
+    background-size: 300% 300%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Auth + Landing Container */
+.auth-container,
+.landing-container {
+    background: rgba(20, 20, 20, 0.85);
+    padding: 40px 35px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgba(255, 0, 0, 0.3);
+    width: 360px;
+    max-width: 90%;
     text-align: center;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.6s ease forwards;
 }
 
-.container {
+.auth-container h1,
+.landing-container h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* Inputs */
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ff4444;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.auth-container input::placeholder {
+    color: #bbb;
+}
+
+.auth-container input:focus {
+    border-color: #ff0000;
+    box-shadow: 0px 0px 8px rgba(255, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.75);
+    transform: scale(1.02);
+}
+
+/* Universal Gradient Button */
+.btn-gradient,
+.auth-link-btn {
+    background: linear-gradient(90deg, #ff0000, #b30000);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.35s ease;
+}
+
+.btn-gradient:hover,
+.auth-link-btn:hover {
+    background: linear-gradient(90deg, #b30000, #ff0000);
+    transform: translateY(-3px) scale(1.07);
+    box-shadow: 0px 6px 18px rgba(255, 0, 0, 0.7);
+}
+
+/* =========================
+   HOME PAGE (TO-DO LIST)
+========================= */
+body.home-page .container {
     width: 50%;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(20, 19, 19, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 25px rgb(246, 35, 35);
+    transition: all 0.3s ease-in-out;
 }
 
+body.home-page .container:hover {
+    box-shadow: 0px 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Task Input */
 .task-input {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
 .task-input input {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
     flex: 1;
+    border: 1px solid #120202;
+    border-radius: 8px;
+    outline: none;
 }
 
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: #4CAF50;
+.task-input input:focus {
+    border-color: #666;
+}
+
+/* Add Button */
+.add-btn {
+    background: linear-gradient(90deg, #ff0000, #b30000);
     color: white;
 }
-
-button:hover {
-    background-color: #45a049;
+.add-btn:hover {
+    background: linear-gradient(90deg, #b30000, #ff0000);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.6);
 }
 
+/* Filters */
 .task-filters {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
 }
 
+.task-filters button {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff5555;
+}
+
+.task-filters button:hover {
+    background: linear-gradient(90deg, #ff0000, #b30000);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Task List */
 ul {
     list-style: none;
     padding: 0;
@@ -52,27 +184,95 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
+    background: #663838;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+}
+
+li:hover {
+    background: #3e3939;
 }
 
 .completed {
     text-decoration: line-through;
-    color: gray;
+    color: #888;
 }
 
-.edit-btn, .delete-btn, .complete-btn {
-    margin-left: 5px;
-    padding: 5px 10px;
+/* Action Buttons */
+.edit-btn {
+    background: #ffcc00;
+    color: #000;
+}
+.edit-btn:hover {
+    background: #e6b800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 204, 0, 0.6);
+}
+
+.delete-btn {
+    background: #ff1a1a;
+    color: white;
+}
+.delete-btn:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.6);
+}
+
+.complete-btn {
+    background: #008CBA;
+    color: white;
+}
+.complete-btn:hover {
+    background: #007bb5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 140, 186, 0.6);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+.msg {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 6px;
     font-size: 14px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
+    text-align: center;
+}
+.msg.success {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+}
+.msg.error {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4444;
+}
+/* Secondary Button Style for Links */
+.link-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-top: 8px;
+    border-radius: 6px;
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-.edit-btn { background-color: #ffcc00; color: black; }
-.delete-btn { background-color: #f44336; color: white; }
-.complete-btn { background-color: #008CBA; color: white; }
+.link-btn:hover {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff1a1a;
+    transform: translateY(-2px);
+}

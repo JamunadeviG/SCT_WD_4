@@ -6,25 +6,28 @@
     <title>To-Do List App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="container">
+<body class="home-page">
+    <main class="container">
         <h1>To-Do List</h1>
-        
+
+        <!-- Task Input -->
         <div class="task-input">
             <input type="text" id="task-text" placeholder="Add a new task">
             <input type="datetime-local" id="task-date">
-            <button onclick="addTask()">Add Task</button>
+            <button type="button" id="add-task-btn" class="add-btn">Add Task</button>
         </div>
 
+        <!-- Filters -->
         <div class="task-filters">
-            <button onclick="filterTasks('all')">All</button>
-            <button onclick="filterTasks('pending')">Pending</button>
-            <button onclick="filterTasks('completed')">Completed</button>
+            <button type="button" data-filter="all">All</button>
+            <button type="button" data-filter="pending">Pending</button>
+            <button type="button" data-filter="completed">Completed</button>
         </div>
 
+        <!-- Task List -->
         <ul id="task-list"></ul>
-    </div>
-    
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
